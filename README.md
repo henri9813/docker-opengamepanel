@@ -1,5 +1,7 @@
 # docker-opengamepanel
-Docker version of OpenGamePanel Web interface
+Docker version of OpenGamePanel, that include:
+- Web Interface
+- Agent
 
 ## Usage
 

@@ -2,13 +2,17 @@ version: '3.7'
 
 services:
   web:
-    build: .
+    build: web
     restart: always
     volumes:
-    - "./config.inc.php:/app/includes/config.inc.php"
+    - "./web/config.inc.php:/app/includes/config.inc.php"
+    depends_on:
+      - mysql
   mysql:
     build: mysql
     environment:
       - MYSQL_RANDOM_ROOT_PASSWORD=true
     env_file:
       - .env
+  agent:
+    build: agent
