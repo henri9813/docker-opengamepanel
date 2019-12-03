@@ -4,12 +4,11 @@ services:
   web:
     build: .
     restart: always
+    volumes:
+    - "./config.inc.php:/app/includes/config.inc.php"
   mysql:
-    image: mysql:5.7
+    build: mysql
     environment:
       - MYSQL_RANDOM_ROOT_PASSWORD=true
     env_file:
       - .env
-    volumes:
-      - "./opengamepanel.sql:/docker-entrypoint-initdb.d/opengamepanel.sql"
-      - "./data/mysql:/var/lib/mysql"
