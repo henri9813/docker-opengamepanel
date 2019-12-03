@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  web:
+    build: .
+    ports:
+    - "8000:80"
+  mysql:
+    image: mysql:5.7
+    environment:
+      - MYSQL_RANDOM_ROOT_PASSWORD=true
+    env_file:
+      - .env
+    volumes:
+      - "./data/mysql:/var/lib/mysql"
