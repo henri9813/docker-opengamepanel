@@ -3,8 +3,7 @@ version: '3.7'
 services:
   web:
     build: .
-    ports:
-    - "8000:80"
+    restart: always
   mysql:
     image: mysql:5.7
     environment:
@@ -12,4 +11,5 @@ services:
     env_file:
       - .env
     volumes:
+      - "./opengamepanel.sql:/docker-entrypoint-initdb.d/opengamepanel.sql"
       - "./data/mysql:/var/lib/mysql"
