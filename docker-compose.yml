@@ -16,3 +16,7 @@ services:
       - .env
   agent:
     build: agent
+    ports:
+    - "27015:27015"
+    volumes:
+    - "./data/OGP_User_Files:/home/ogp_agent/OGP_User_Files"
