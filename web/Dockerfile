@@ -11,6 +11,8 @@ RUN apt update \
 RUN git clone https://github.com/OpenGamePanel/OGP-Website.git . \
     && chown -R www-data:www-data .
 
+ADD config.inc.php /app/includes/
+
 RUN docker-php-ext-install \
     bcmath \
     mysqli \
@@ -18,3 +20,5 @@ RUN docker-php-ext-install \
     zip
 
 RUN a2enmod rewrite
+
+

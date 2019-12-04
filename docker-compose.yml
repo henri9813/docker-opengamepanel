@@ -4,10 +4,10 @@ services:
   web:
     build: web
     restart: always
-    volumes:
-    - "./web/config.inc.php:/app/includes/config.inc.php"
     depends_on:
       - mysql
+    env_file:
+      - .env
   mysql:
     build: mysql
     environment:
