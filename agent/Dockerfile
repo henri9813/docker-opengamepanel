@@ -23,20 +23,22 @@ RUN apt update \
         libhttp-daemon-perl \
         wget \
         procps \
-        systemd-container
+        systemd-container \
+        libarchive-extract-perl \
+        libstdc++6 \
+        lib32stdc++6
 
 RUN wget -N "https://github.com/OpenGamePanel/Easy-Installers/raw/master/Linux/Debian-Ubuntu/ogp-agent-latest.deb" -O "ogp-agent-latest.deb"
 RUN dpkg -i "ogp-agent-latest.deb"
 
-
 ENV DEBIAN_FRONTEND noninteractive
 
-## Set LOCALE to UTF8
-#
+# Set LOCALE to UTF8
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
     locale-gen en_US.UTF-8 && \
     dpkg-reconfigure locales && \
     /usr/sbin/update-locale LANG=en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
-ENTRYPOINT tail -f /dev/null
+ADD entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
