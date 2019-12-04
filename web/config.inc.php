@@ -2,10 +2,10 @@
 ###############################################
 # Site configuration
 ###############################################
-$db_host="mysql";
-$db_user="ogp";
-$db_pass="superPassword";
-$db_name="superDatabase";
-$table_prefix="ogp_";
-$db_type="mysql";
+$db_host = getenv('OGP_SQL_HOST');
+$db_user = getenv('OGP_SQL_USER');
+$db_pass = getenv('OGP_SQL_PASSWORD');
+$db_name = getenv('OGP_SQL_DATABASE');
+$table_prefix = getenv('OGP_SQL_PREFIX') ? getenv('OGP_SQL_PREFIX') : 'ogp_';
+$db_type = 'mysql';
 ?>

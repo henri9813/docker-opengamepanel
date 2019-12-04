@@ -18,3 +18,5 @@ RUN docker-php-ext-install \
     zip
 
 RUN a2enmod rewrite
+
+ADD config.inc.php /app/includes/
