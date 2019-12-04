@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   web:
-    build: web
+    image: henri9813/opengamepanel-web
     restart: always
     volumes:
     - "./web/config.inc.php:/app/includes/config.inc.php"
@@ -15,4 +15,4 @@ services:
     env_file:
       - .env
   agent:
-    image: agent
+    image: henri9813/opengamepanel-agent
