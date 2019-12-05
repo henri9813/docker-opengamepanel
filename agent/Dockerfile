@@ -28,7 +28,8 @@ RUN apt update \
         libstdc++6 \
         lib32stdc++6 \
         libmariadb-dev \
-        mariadb-client
+        mariadb-client \
+        lib32z1
 
 RUN wget -N "https://github.com/OpenGamePanel/Easy-Installers/raw/master/Linux/Debian-Ubuntu/ogp-agent-latest.deb" -O "ogp-agent-latest.deb"
 RUN dpkg -i "ogp-agent-latest.deb"
