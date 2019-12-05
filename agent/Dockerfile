@@ -26,7 +26,9 @@ RUN apt update \
         systemd-container \
         libarchive-extract-perl \
         libstdc++6 \
-        lib32stdc++6
+        lib32stdc++6 \
+        libmariadb-dev \
+        mariadb-client
 
 RUN wget -N "https://github.com/OpenGamePanel/Easy-Installers/raw/master/Linux/Debian-Ubuntu/ogp-agent-latest.deb" -O "ogp-agent-latest.deb"
 RUN dpkg -i "ogp-agent-latest.deb"
